@@ -111,7 +111,7 @@
                         </li>
                     </ul>
                 </div>
-                <div class="buy">确定</div>
+                <div class="buy" @click="$router.push('/confirmOrder')">确定</div>
             </div>
         </transition>
     </div>
@@ -158,14 +158,21 @@
             }).catch((err) => {
                 console.log(err)       //请求失败返回的数据
             })
+
+
         },
         methods: {
             toBuy() {
                 this.isShopBoxShow = true
+                this.$store.commit('openMark')
             },
             close(){
                 this.isShopBoxShow = false
+                this.$store.commit('closeMark')
             }
+        },
+        deactivated(){
+            this.$store.commit('closeMark')
         }
     }
 </script>
@@ -181,16 +188,16 @@
             }
         }
     }
-    .content img {
+    .shopDetail>.content img {
         width: 100%;
     }
     .mint-tabbar {
         display: none;
     }
-    .swiper-pagination-bullet-active {
+    .shopDetail .swiper-pagination-bullet-active {
         background: #fff;
     }
-    .shopInfo {
+    .shopDetail .shopInfo {
         padding: 0.75rem;
         .name {
             font-size: 0.8rem;

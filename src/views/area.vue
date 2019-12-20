@@ -1,6 +1,6 @@
 <template>
     <div class="area">
-        社区
+
         <div class="haha"></div>
     </div>
 </template>

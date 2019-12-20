@@ -8,6 +8,12 @@ export default new Vuex.Store({
     isMarkShow:false
   },
   mutations: {
+    openMark(state){
+      state.isMarkShow = true
+    },
+    closeMark(state){
+      state.isMarkShow = false
+    }
   },
   actions: {
   },

@@ -45,35 +45,8 @@
                 </ul>
             </div>
             <ul class="goodsList">
-                <li class="goodsItem">
-                    <img src="../assets/flower.png" alt="">
-                    <div class="shopInfo">
-                        <div class="name">
-                            豪华系列DIY包月鲜花，盛装出行，我只为你，遇见你，家具是家具是家具是家具是家具是家具是家具是家具是家具是家具是家具是家具是
-                        </div>
-                        <div class="summary">
-                            一个月4束，每周一收花(周五十二点前付款)
-                        </div>
-                    </div>
-                    <div class="price">
-                        <span>￥19.9</span>
-                        <span>x1</span>
-                    </div>
-                </li>
-                <li class="goodsItem">
-                    <img src="../assets/flower.png" alt="">
-                    <div class="shopInfo">
-                        <div class="name">
-                            豪华系列DIY包月鲜花，盛装出行，我只为你，遇见你，家具是家具是家具是家具是家具是家具是家具是家具是家具是家具是家具是家具是
-                        </div>
-                        <div class="summary">
-                            一个月4束，每周一收花(周五十二点前付款)
-                        </div>
-                    </div>
-                    <div class="price">
-                        <span>￥19.9</span>
-                    </div>
-                </li>
+                <orderShopItem></orderShopItem>
+                <orderShopItem></orderShopItem>
                 <li class="goodsItem gift">
                     <div>
                         <span class="">祝福卡(5元/张)</span>
@@ -121,90 +94,94 @@
 
 <script>
     import bottomInfo from '@/components/bottomInfo'
+    import actionSheet from '@/components/actionSheet';
+    import orderShopItem from '@/components/orderShopItem'
 
-    import actionSheet  from '@/components/actionSheet';
     export default {
         components: {
-            bottomInfo,actionSheet
+            bottomInfo, actionSheet, orderShopItem
         },
-        data(){
+        data() {
             return {
-                isActionSheet:false,
+                isActionSheet: false,
                 show: true
             }
         },
         created() {
             document.title = '确认订单'
         },
-        methods:{
-            close(){
+        mounted() {
+
+        },
+        methods: {
+            close() {
                 this.isActionSheet = false
             },
-            getPayId(id){
+            getPayId(id) {
                 console.log(id);
             },
-            choosePayMethods(){
+            choosePayMethods() {
                 this.isActionSheet = true
             },
-            chooseTickets(){
+            chooseTickets() {
                 this.isActionSheet = true
             }
         }
     }
 </script>
 <style lang="scss">
-    .confirmOrder{
-        height:calc(100vh - 2.5rem);
-        padding:0.75rem;
+    .confirmOrder {
+        height: calc(100vh - 2.5rem);
+        padding: 0.75rem;
         background: #f5f5f5;
         overflow: auto;
-        .title{
+        .title {
             font-size: 0.7rem;
             font-weight: bold;
         }
-        >div:not(.bottomInfo){
-            >div,.goodsList{
+        > div:not(.bottomInfo) {
+            > div, .goodsList {
                 margin-top: 0.75rem;
                 background: #fff;
                 padding: 0.5rem;
             }
         }
-        >div >div.sendInfo{
+        > div > div.sendInfo {
             font-size: 0.7rem;
             margin-top: 0;
-            >div{
+            > div {
                 display: flex;
                 align-items: center;
-                >div:first-child{
+                > div:first-child {
                     margin-right: 10px;
                 }
             }
-            .address{
-                .default{
+            .address {
+                .default {
                     background: #f42937;
                     padding: 3px;
                     color: #fff;
                     border-radius: 5px;
                     font-size: 0.6rem;
                 }
-                .addressText{
+                .addressText {
                     font-size: 0.6rem;
                 }
             }
-            .bigAddress{
+            .bigAddress {
                 margin: 0.5rem 0;
                 justify-content: space-between;
-                i{
+                i {
                     color: #999;
                 }
             }
-            .userInfo{
+            .userInfo {
                 color: #999;
             }
         }
-        .sendRuler{
-            .dateList{
-                li{
+        .sendRuler {
+            .dateList {
+                li {
                     transition: .5s;
                     font-size: 0.6rem;
                     padding: 5px 10px;
@@ -212,17 +189,17 @@
                     margin: 10px 10px 10px 0;
                     border-radius: 20px;
                     background: #f5f5f5;
-                    &.on{
+                    &.on {
                         background: #fef4f5;
                     }
                 }
             }
-            .dayList{
+            .dayList {
                 display: flex;
-                li{
+                li {
                     border-radius: 5px;
                     padding: 5px 10px;
-                    width:4.5rem;
+                    width: 4.5rem;
                     margin: 10px 10px 10px 0;
                     font-size: 0.6rem;
                     background: #f5f5f5;
@@ -230,20 +207,20 @@
                     flex-direction: column;
                     align-items: center;
                     justify-content: space-between;
-                    &.on{
+                    &.on {
                         background: #fef4f5;
                     }
-                    span:last-child{
+                    span:last-child {
                         font-size: 0.5rem;
                         margin-top: 5px;
                     }
                 }
             }
         }
-        .FlowerModel{
-            .modelList{
+        .FlowerModel {
+            .modelList {
                 display: flex;
-                li{
+                li {
                     transition: .5s;
                     font-size: 0.6rem;
                     padding: 5px 10px;
@@ -251,131 +228,86 @@
                     margin: 10px 10px 0 0;
                     border-radius: 5px;
                     background: #f5f5f5;
-                    &.on{
+                    &.on {
                         background: #fef4f5;
                     }
                 }
             }
 
         }
-        .goodsList{
+        .goodsList {
             padding: 0.5rem;
-            .goodsItem:not(.gift){
-                display: flex;
-                justify-content: space-between;
-                align-items: flex-start;
-                margin-top: 10px;
-                img{
-                    width: 3.5rem;
-                    height:3.5rem;
-                    border-radius: 5px;
-                }
-                .shopInfo{
-                    font-size: 0.6rem;
-                    flex:1;
-                    padding:5px 10px;
-                    .name{
-                        line-height: 0.8rem;
-                        font-weight: bold;
-                        height: 1.6rem;
-                        overflow: hidden;
-                        display: -webkit-box;
-                        -webkit-line-clamp: 2;
-                        -webkit-box-orient: vertical;
-                        word-break: break-all;
-                    }
-                    .summary{
-                        color: #999;
-                        overflow: hidden;
-                        display: -webkit-box;
-                        -webkit-line-clamp: 2;
-                        -webkit-box-orient: vertical;
-                        word-break: break-all;
-                    }
-                }
-                .price{
-                    margin-top: 10px;
-                    display: flex;
-                    flex-direction: column;
-                    align-items: center;
-                    font-size: 0.6rem;
-                    color: #000;
-                    span:last-child{
-                        color: #999;
-                        margin-top: 10px;
-                    }
-                }
-            }
-            .gift{
+
+            .gift {
                 margin-top: 10px;
                 font-size: 0.6rem;
-                >div:first-child{
+                > div:first-child {
                     display: flex;
                     justify-content: space-between;
                     align-items: center;
-                    .checkBoxWrap{
-                        width:2.4rem;
-                        height:1.2rem;
+                    .checkBoxWrap {
+                        width: 2.4rem;
+                        height: 1.2rem;
                         background: #eee;
                         transition: .5s;
                         position: relative;
                         border-radius: 20px;
-                        input{
-                            width:100%;
-                            height:100%;
+                        input {
+                            width: 100%;
+                            height: 100%;
                             position: absolute;
                             z-index: 99;
                             opacity: 0;
                         }
-                        input+div{
-                             position: relative;
-                             width:99%;
-                             height:99%;
-                             background: #eee;
+                        input + div {
+                            position: relative;
+                            width: 99%;
+                            height: 99%;
+                            background: #eee;
                             transition: 1s;
                             border-radius: 20px;
-                         }
-                        input+div:before{
+                        }
+                        input + div:before {
                             content: '';
                             position: absolute;
-                            width:50%;
-                            height:93%;
+                            width: 50%;
+                            height: 93%;
                             background: #fff;
-                            border:1px solid #ccc;
+                            border: 1px solid #ccc;
                             border-radius: 20px;
                             z-index: 98;
                         }
-                        input+div:after{
-                            content: '';
-                            position: absolute;
-                            left:50%;
-                            width:50%;
-                            height:100%;
-                            background: #eee;
-                            border-radius: 20px;
-                        }
-                        input:checked+div:before{
+                        input + div:after {
                             content: '';
                             position: absolute;
                             left: 50%;
-                            width:50%;
-                            height:93%;
+                            width: 50%;
+                            height: 100%;
+                            background: #eee;
+                            border-radius: 20px;
+                        }
+                        input:checked + div:before {
+                            content: '';
+                            position: absolute;
+                            left: 50%;
+                            width: 50%;
+                            height: 93%;
                             transition: 1s ease-in;
                             background: #fff;
                             border-radius: 20px;
                         }
-                        input:checked+div:after{
-                            width:100%;
-                            left:0;
+                        input:checked + div:after {
+                            width: 100%;
+                            left: 0;
                             background: $theme-color;
-                            border-radius:20px;
+                            border-radius: 20px;
                         }
                     }
                 }
-                >div:last-child{
-                    textarea{
-                        width:100%;
-                        height:100%;
+                > div:last-child {
+                    textarea {
+                        width: 100%;
+                        height: 100%;
                         margin-top: 10px;
                         padding: 0.5rem;
                         outline: none;
@@ -383,70 +315,75 @@
                 }
             }
         }
-        .payMethods{
+        .payMethods {
             display: flex;
             justify-content: space-between;
             font-size: 0.6rem;
-            .iconfont{
+            .iconfont {
                 font-size: 0.6rem;
             }
         }
-        .changeTicket{
+        .changeTicket {
             display: flex;
             justify-content: space-between;
             font-size: 0.6rem;
-            .iconfont{
+            .iconfont {
                 font-size: 0.6rem;
             }
         }
     }
-    .confirmOrder{
-        .bottomInfo{
+
+    .confirmOrder {
+        .bottomInfo {
             bottom: 0;
-            left:0;
-            .info{
-                height:100%;
+            left: 0;
+            .info {
+                height: 100%;
                 padding: 2px 0;
                 display: flex;
                 flex-direction: column;
                 justify-content: space-between;
-                .relayPay{
-                    span{
+                .relayPay {
+                    span {
                         color: $theme-color;
                     }
                 }
-                .sendPay{
+                .sendPay {
                     color: #999;
                     font-size: 0.6rem;
                 }
             }
-            .goPay{
-                width:6rem;
+            .goPay {
+                width: 6rem;
                 display: flex;
                 align-items: center;
                 justify-content: center;
-                height:100%;
-                border-radius:20px;
+                height: 100%;
+                border-radius: 20px;
                 @include button;
             }
         }
     }
+
     .fade-enter-active, .fade-leave-active {
-        bottom:0;
+        bottom: 0;
 
     }
-    .fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
-        bottom:-100%;
+
+    .fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */
+    {
+        bottom: -100%;
     }
-    .shop{
-        width:100vw;
-        height:23rem;
+
+    .shop {
+        width: 100vw;
+        height: 23rem;
         position: fixed;
-        bottom:0;
+        bottom: 0;
         transition: all 1s;
         background: red;
-        z-index:1000;
-        left:0;
+        z-index: 1000;
+        left: 0;
     }
 
 </style>

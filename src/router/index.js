@@ -14,6 +14,7 @@ let Mine =()=>import ('@/views/mine')//我的
 let GoodCar =()=>import ('@/views/goodCar')//购物车
 let ShopDetail = ()=>import('@/views/shopDetail')//商品详情
 let ConfirmOrder = ()=>import('@/views/confirmOrder')//确认订单
+let WaitPay = ()=>import('@/views/waitPay')//待付款
 let Date =()=>import ('@/views/date')//首页
 Vue.use(VueRouter)
 const routes = [
@@ -55,6 +56,11 @@ const routes = [
         path:'/gift',
         name:'gift',
         component:Gift
+    },
+    {
+        path:'/waitPay',
+        name:'waitPay',
+        component:WaitPay
     },
     {
         path:'/flower',
