@@ -1,32 +1,31 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view/>
+    <div class="mark" v-show="$store.state.isMarkShow"></div>
+    <keep-alive>
+      <router-view></router-view>
+    </keep-alive>
+    <BottomBar></BottomBar>
   </div>
 </template>
+<script>
+  import BottomBar from '@/components/bottomBar'
+  export default {
+      components:{
+          BottomBar
+      },
+      computed:{
 
+      }
+  }
+</script>
 <style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
-
-#nav {
-  padding: 30px;
-}
-
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-#nav a.router-link-exact-active {
-  color: #42b983;
-}
+  .mark{
+    position: fixed;
+    top:0;
+    left: 0;
+    background: rgba(0,0,0,0.5);
+    width:100vw;
+    height:100vh;
+    z-index:900;
+  }
 </style>

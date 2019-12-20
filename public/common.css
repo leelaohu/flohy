@@ -1,0 +1,30 @@
+*{
+    box-sizing: border-box;
+}
+.active{
+    color: #f62d3b;
+}
+.on {
+     background: #fef4f5;
+     color: #f62d3b;
+ }
+.active a{
+    color: #f62d3b;
+}
+.sf{
+    font-size: 0.7rem;
+}
+.mf{
+    font-size: 0.9rem;
+}
+.bg{
+    font-size: 1rem;
+}
+.bold{
+    font-weight: 600;
+}
+.swiper-pagination-bullet{
+    background: transparent;
+    border:2px solid #fff;
+}
+

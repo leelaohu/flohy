@@ -1,0 +1,5 @@
+$theme-color: #f62d3b;
+@mixin button{
+  color: #fff;
+  background: linear-gradient(to right, #ec4158, #ec1c3d);
+}//声明混合宏border-radius
